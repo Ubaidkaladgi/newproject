@@ -3,58 +3,36 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #f2f2f2;
-            padding: 10px;
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <title>Shopping Page</title>
 </head>
 <body>
 
-    <header>
-        <h1>Dashboard</h1>
-    </header>
+    <h1>Welcome to our Shopping Page</h1>
 
-    <nav>
-        <a href="#">Home</a> |
-        <a href="#">Reports</a> |
-        <a href="#">Settings</a>
-    </nav>
+    <ul>
+        <li>
+            <h2>Product 1</h2>
+            <p>Description: This is the description of Product 1.</p>
+            <p>Price: $20.00</p>
+            <form action="addToCart.jsp" method="post">
+                <input type="hidden" name="productId" value="1">
+                <input type="submit" value="Add to Cart">
+            </form>
+        </li>
 
-    <section>
-        <h2>Welcome to your dashboard!</h2>
-        <p>This is a simple dashboard example.</p>
-    </section>
+        <li>
+            <h2>Product 2</h2>
+            <p>Description: This is the description of Product 2.</p>
+            <p>Price: $25.00</p>
+            <form action="addToCart.jsp" method="post">
+                <input type="hidden" name="productId" value="2">
+                <input type="submit" value="Add to Cart">
+            </form>
+        </li>
 
-    <footer>
-        <p>&copy; 2023 Your Company</p>
-    </footer>
+        <!-- Add more products as needed -->
+
+    </ul>
 
 </body>
 </html>
