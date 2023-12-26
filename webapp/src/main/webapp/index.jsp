@@ -1,37 +1,60 @@
-<form action="action_page.php">
-  <div class="container">
-    <h1>New user Register for DevOps Learning in Genztech classes</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-     
-    <label for="Name"><b>Enter Name of your project</b></label>
-    <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
-    <br>
-    
-    <label for="mobile"><b>Enter phoneNo r</b></label>
-    <input type="text" placeholder="Enter mobile number" name="mobile" id="mobile" required>
-    <br>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    <label for="email"><b>Enter Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-    <br>
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-    <br>
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-    <hr>
-    <br>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
-  </div>
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div>
+        section {
+            padding: 20px;
+        }
 
-   <h1> Thankyou, Happy Learning Maven project in Genztech class </h1>
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-  
-</form>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a> |
+        <a href="#">Reports</a> |
+        <a href="#">Settings</a>
+    </nav>
+
+    <section>
+        <h2>Welcome to your dashboard!</h2>
+        <p>This is a simple dashboard example.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+
+</body>
+</html>
