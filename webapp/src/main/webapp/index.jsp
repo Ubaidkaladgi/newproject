@@ -59,5 +59,5 @@
         <p>&copy; 2023 Digital Website. All rights reserved.</p>
     </footer>
 
-</body>
+</body>  
 </html>
