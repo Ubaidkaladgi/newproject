@@ -3,61 +3,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Digital Website</title>
+    <title>Digital Clock</title>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // Add leading zero if the number is less than 10
+            hours = (hours < 10) ? '0' + hours : hours;
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerText = timeString;
+
+            // Update every second
+            setTimeout(updateClock, 1000);
+        }
+
+        // Initialize the clock when the page is loaded
+        window.onload = function () {
+            updateClock();
+        };
+    </script>
 </head>
 <body>
 
     <header>
-        <h1>Digital Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Digital Clock</h1>
     </header>
 
     <main>
-        <section id="welcome-section">
-            <h2>Welcome to our Digital Website!</h2>
-            <p>This is a simple example of a digital website using JSP.</p>
-        </section>
-
-        <section id="user-section">
-            <h2>User Information</h2>
-
-            <form method="post" action="processForm.jsp">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-
-        <section id="display-section">
-            <h2>Submitted Information</h2>
-
-            <%
-                String submittedName = request.getParameter("name");
-                String submittedEmail = request.getParameter("email");
-
-                if (submittedName != null && submittedEmail != null) {
-            %>
-                <p>Name: <%= submittedName %></p>
-                <p>Email: <%= submittedEmail %></p>
-            <%
-                }
-            %>
+        <section id="clock-section">
+            <h2>Current Time</h2>
+            <p id="clock"></p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Digital Website. All rights reserved.</p>
+        <p>&copy; 2023 Digital Clock. All rights reserved.</p>
     </footer>
 
-</body>  
+</body>
 </html>
