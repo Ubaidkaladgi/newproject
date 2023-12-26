@@ -3,36 +3,61 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Shopping Page</title>
+    <title>Digital Website</title>
 </head>
 <body>
 
-    <h1>Welcome to our Shopping Page</h1>
+    <header>
+        <h1>Digital Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <ul>
-        <li>
-            <h2>Product 1</h2>
-            <p>Description: This is the description of Product 1.</p>
-            <p>Price: $20.00</p>
-            <form action="addToCart.jsp" method="post">
-                <input type="hidden" name="productId" value="1">
-                <input type="submit" value="Add to Cart">
+    <main>
+        <section id="welcome-section">
+            <h2>Welcome to our Digital Website!</h2>
+            <p>This is a simple example of a digital website using JSP.</p>
+        </section>
+
+        <section id="user-section">
+            <h2>User Information</h2>
+
+            <form method="post" action="processForm.jsp">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <input type="submit" value="Submit">
             </form>
-        </li>
+        </section>
 
-        <li>
-            <h2>Product 2</h2>
-            <p>Description: This is the description of Product 2.</p>
-            <p>Price: $25.00</p>
-            <form action="addToCart.jsp" method="post">
-                <input type="hidden" name="productId" value="2">
-                <input type="submit" value="Add to Cart">
-            </form>
-        </li>
+        <section id="display-section">
+            <h2>Submitted Information</h2>
 
-        <!-- Add more products as needed -->
+            <%
+                String submittedName = request.getParameter("name");
+                String submittedEmail = request.getParameter("email");
 
-    </ul>
+                if (submittedName != null && submittedEmail != null) {
+            %>
+                <p>Name: <%= submittedName %></p>
+                <p>Email: <%= submittedEmail %></p>
+            <%
+                }
+            %>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Digital Website. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
