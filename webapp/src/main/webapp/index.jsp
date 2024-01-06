@@ -1,79 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+    <title>Digital Clock</title>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // Add leading zero if the number is less than 10
+            hours = (hours < 10) ? '0' + hours : hours;
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerText = timeString;
+
+            // Update every second
+            setTimeout(updateClock, 1000);
         }
 
-        #todo-container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        #task-input {
-            width: 70%;
-            padding: 8px;
-            margin-right: 10px;
-        }
-
-        #add-task-btn {
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        .delete-btn {
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
+        // Initialize the clock when the page is loaded
+        window.onload = function () {
+            updateClock();
+        };
+    </script>
 </head>
 <body>
 
-    <div id="todo-container">
-        <h2>Simple To-Do List</h2>
-        <div>
-            <input type="text" id="task-input" placeholder="Add a new task">
-            <button id="add-task-btn" onclick="addTask()">Add Task</button>
-        </div>
-        <ul id="task-list"></ul>
-    </div>
+    <header>
+        <h1>Digital Clock</h1>
+    </header>
 
-    <script>
-        function addTask() {
-            var taskInput = document.getElementById('task-input');
-            var taskList = document.getElementById('task-list');
+    <main>
+        <section id="clock-section">
+            <h2>Current Time</h2>
+            <p id="clock"></p>
+        </section>
+    </main>
 
-            if (taskInput.value.trim() !== '') {
-                var newTask = document.createElement('li');
-                newTask.innerHTML = taskInput.value + ' <button class="delete-btn" onclick="deleteTask(this)">Delete</button>';
-                taskList.appendChild(newTask);
-                taskInput.value = '';
-            }
-        }
-
-        function deleteTask(btn) {
-            var taskList = document.getElementById('task-list');
-            var listItem = btn.parentNode;
-            taskList.removeChild(listItem);
-        }
-    </script>
+    <footer>
+        <p>&copy; 2023 Digital Clock. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
