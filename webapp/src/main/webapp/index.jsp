@@ -44,7 +44,7 @@
     <button onclick="appendToResult('3')">3</button>
     <button onclick="appendToResult('2')">2</button>
     <button onclick="appendToResult('1')">1</button>
-    <button onclick="appendToResult('0')">7</button>
+    <button onclick="appendToResult('0')">0</button>
     <button onclick="appendToResult('+')">+</button>
     <button onclick="appendToResult('*')">*</button>
     <button onclick="appendToResult('-')">-</button>
