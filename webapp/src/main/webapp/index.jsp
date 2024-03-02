@@ -1,51 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Digital Clock</title>
-
-    <script>
-        function updateClock() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-
-            // Add leading zero if the number is less than 10
-            hours = (hours < 10) ? '0' + hours : hours;
-            minutes = (minutes < 10) ? '0' + minutes : minutes;
-            seconds = (seconds < 10) ? '0' + seconds : seconds;
-
-            var timeString = hours + ':' + minutes + ':' + seconds;
-            document.getElementById('clock').innerText = timeString;
-
-            // Update every second
-            setTimeout(updateClock, 1000);
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
         }
-
-        // Initialize the clock when the page is loaded
-        window.onload = function () {
-            updateClock();
-        };
-    </script>
+        .calculator {
+            width: 200px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .calculator input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 20px;
+        }
+        .calculator button {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Digital Clock</h1>
-    </header>
+<div class="calculator">
+    <input type="text" id="result" disabled>
+    <button onclick="clearResult()">C</button>
+    <button onclick="appendToResult('7')">7</button>
+    <button onclick="appendToResult('8')">8</button>
+    <button onclick="appendToResult('9')">9</button>
+    <button onclick="appendToResult('+')">+</button>
+    <button onclick="appendToResult('4')">4</button>
+    <button onclick="appendToResult('5')">5</button>
+    <button onclick="appendToResult('6')">6</button>
+    <button onclick="appendToResult('-')">-</button>
+    <button onclick="appendToResult('1')">1</button>
+    <button onclick="appendToResult('2')">2</button>
+    <button onclick="appendToResult('3')">3</button>
+    <button onclick="appendToResult('*')">*</button>
+    <button onclick="appendToResult('0')">0</button>
+    <button onclick="appendToResult('.')">.</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendToResult('/')">/</button>
+</div>
 
-    <main>
-        <section id="clock-section">
-            <h2>Current Time</h2>
-            <p id="clock"></p>
-        </section>
-    </main>
+<script>
+    function appendToResult(value) {
+        document.getElementById("result").value += value;
+    }
 
-    <footer>
-        <p>&copy; 2023 Digital Clock. All rights reserved.</p>
-    </footer>
+    function calculateResult() {
+        var result = document.getElementById("result");
+        try {
+            result.value = eval(result.value);
+        } catch (e) {
+            result.value = 'Error';
+        }
+    }
+
+    function clearResult() {
+        document.getElementById("result").value = '';
+    }
+</script>
 
 </body>
 </html>
