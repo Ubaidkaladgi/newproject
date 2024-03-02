@@ -51,6 +51,7 @@
     <button onclick="appendToResult('.')">.</button>
     <button onclick="calculateResult()">=</button>
     <button onclick="appendToResult('/')">/</button>
+    <button onclick="clearResult()">C</button>
 </div>
 
 <script>
