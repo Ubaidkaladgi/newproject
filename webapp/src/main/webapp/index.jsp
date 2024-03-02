@@ -34,7 +34,6 @@
 
 <div class="calculator">
     <input type="text" id="result" disabled>
-    <button onclick="clearResult()">C</button>
     <button onclick="appendToResult('9')">9</button>
     <button onclick="appendToResult('8')">8</button>
     <button onclick="appendToResult('7')">7</button>
